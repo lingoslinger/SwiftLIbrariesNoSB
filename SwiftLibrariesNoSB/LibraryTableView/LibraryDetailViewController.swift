@@ -14,7 +14,6 @@ class LibraryDetailViewController: UIViewController {
     
     private let mapView: MKMapView = {
         let map = MKMapView()
-        map.backgroundColor = .gray
         map.translatesAutoresizingMaskIntoConstraints = false
         return map
     }()
@@ -45,6 +44,7 @@ class LibraryDetailViewController: UIViewController {
         hours.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         hours.font = UIFont.systemFont(ofSize: 17)
         hours.textAlignment = .natural
+        hours.numberOfLines = 0
         hours.translatesAutoresizingMaskIntoConstraints = false
         return hours
     }()
