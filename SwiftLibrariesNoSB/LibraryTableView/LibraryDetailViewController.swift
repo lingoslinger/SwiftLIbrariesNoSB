@@ -20,27 +20,28 @@ class LibraryDetailViewController: UIViewController {
     
     private let addressLabel: UILabel = {
         let address = UILabel()
-        address.backgroundColor = .white
+        address.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         address.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         address.font = UIFont.systemFont(ofSize: 17)
         address.textAlignment = .natural
         address.translatesAutoresizingMaskIntoConstraints = false
         return address
     }()
-
-    private let phoneLabel: UILabel = {
-        let phone = UILabel()
-        phone.backgroundColor = .white
-        phone.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+  
+    private let phoneTextView: UITextView = {
+        let phone = UITextView()
+        phone.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        phone.textColor = .link
         phone.font = UIFont.systemFont(ofSize: 17)
         phone.textAlignment = .natural
+        phone.dataDetectorTypes = [.phoneNumber]
         phone.translatesAutoresizingMaskIntoConstraints = false
         return phone
     }()
     
     private let hoursLabel: UILabel = {
         let hours = UILabel()
-        hours.backgroundColor = .white
+        hours.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         hours.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         hours.font = UIFont.systemFont(ofSize: 17)
         hours.textAlignment = .natural
@@ -54,7 +55,7 @@ class LibraryDetailViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(mapView)
         view.addSubview(addressLabel)
-        view.addSubview(phoneLabel)
+        view.addSubview(phoneTextView)
         view.addSubview(hoursLabel)
         setupAutoLayout()
         setupUI()
@@ -70,14 +71,15 @@ class LibraryDetailViewController: UIViewController {
         addressLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         addressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         
-        phoneLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
-        phoneLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        phoneLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        phoneTextView.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 20).isActive = true
+        phoneTextView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
+        phoneTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        phoneTextView.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
-        hoursLabel.topAnchor.constraint(equalTo: phoneLabel.bottomAnchor, constant: 20).isActive = true
+        hoursLabel.topAnchor.constraint(equalTo: phoneTextView.bottomAnchor, constant: 20).isActive = true
         hoursLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         hoursLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        hoursLabel.heightAnchor.constraint(equalToConstant: 168).isActive = true
+        hoursLabel.heightAnchor.constraint(equalToConstant: 120).isActive = true
     }
     
     private func setupUI() {
@@ -98,10 +100,10 @@ class LibraryDetailViewController: UIViewController {
             print(error) // TODO: error handling
         }
         if numberOfMatches == 0 {
-            phoneLabel.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
-            phoneLabel.text = phone
+            phoneTextView.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
+            phoneTextView.text = phone
         } else {
-            phoneLabel.text = "Phone: \(phone)"
+            phoneTextView.text = "Phone: \(phone)"
         }
     }
     
