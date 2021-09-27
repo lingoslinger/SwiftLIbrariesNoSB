@@ -83,8 +83,8 @@ class LibraryDetailViewController: UIViewController {
     }
     
     private func setupUI() {
-        annotateMap()
         title = library?.name
+        annotateMap()
         addressLabel.text = library?.address
         parsePhoneNumber()
         hoursLabel.text = library?.hoursOfOperation?.formattedHours
@@ -99,7 +99,7 @@ class LibraryDetailViewController: UIViewController {
         } catch {
             print(error) // TODO: error handling
         }
-        if numberOfMatches == 0 {
+        if numberOfMatches == 0 { // so far, only a phone number and a "closed for construction" message has been here
             phoneTextView.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
             phoneTextView.text = phone
         } else {
@@ -108,10 +108,13 @@ class LibraryDetailViewController: UIViewController {
     }
     
     private func annotateMap() {
-        let latitudeString = library?.location?.latitude ?? ""
-        let longitudeString = library?.location?.longitude ?? ""
-        let zoomLocation = CLLocationCoordinate2D.init(latitude: Double(latitudeString) ?? 0.0, longitude: Double(longitudeString) ?? 0.0)
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        guard let latitudeString = library?.location?.latitude,
+              let longitudeString = library?.location?.longitude,
+              let lat = Double(latitudeString),
+              let lon = Double(longitudeString) else { return }
+        let zoomLocation = CLLocationCoordinate2D.init(latitude: lat,
+                                                       longitude: lon)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let viewRegion = MKCoordinateRegion.init(center: zoomLocation, span: span)
         let point = MKPointAnnotation.init()
         point.coordinate = zoomLocation

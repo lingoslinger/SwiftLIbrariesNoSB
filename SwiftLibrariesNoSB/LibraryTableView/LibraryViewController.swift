@@ -55,7 +55,6 @@ class LibraryViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.showErrorDialogWithMessage(message: error?.localizedDescription ?? "Unknown network error")
                 }
-
             }
         }.resume()
     }
@@ -86,13 +85,6 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         return sectionArray?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath)
-        let library = currentLibrary(indexPath)
-        cell.textLabel?.text = library?.name
-        return cell
-    }
-    
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
     }
@@ -103,6 +95,13 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return self.sectionTitles
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath)
+        let library = currentLibrary(indexPath)
+        cell.textLabel?.text = library?.name
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
