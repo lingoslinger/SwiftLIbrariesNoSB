@@ -90,8 +90,8 @@
 		20BB99D926FA606600736C0A /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				20BB99DA26FA606600736C0A /* Location.swift */,
 				20BB99DB26FA606600736C0A /* Library.swift */,
+				20BB99DA26FA606600736C0A /* Location.swift */,
 				20BB99DC26FA606600736C0A /* Website.swift */,
 			);
 			path = "Data Models";

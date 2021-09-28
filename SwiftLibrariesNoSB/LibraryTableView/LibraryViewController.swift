@@ -105,9 +105,8 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let library = currentLibrary(indexPath)
-        let detail = LibraryDetailViewController()
-        detail.library = library
+        guard let library = currentLibrary(indexPath) else { return }
+        let detail = LibraryDetailViewController(library: library)
         navigationItem.backButtonTitle = "List"
         navigationController?.pushViewController(detail, animated: true)
     }

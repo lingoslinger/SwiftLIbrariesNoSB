@@ -12,6 +12,11 @@ class LibraryDetailViewController: UIViewController {
     
     var library: Library?
     
+    convenience init(library: Library) {
+        self.init()
+        self.library = library
+    }
+    
     private let mapView: MKMapView = {
         let map = MKMapView()
         map.translatesAutoresizingMaskIntoConstraints = false
