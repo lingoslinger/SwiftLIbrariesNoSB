@@ -19,6 +19,8 @@
 		20BB99E726FA7D5C00736C0A /* String+LibraryHourFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99E526FA7D5C00736C0A /* String+LibraryHourFormatting.swift */; };
 		20BB99E926FC318000736C0A /* LibraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99E826FC318000736C0A /* LibraryDetailViewController.swift */; };
 		20BB99EC2703570700736C0A /* LibraryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99EB2703570700736C0A /* LibraryDataSource.swift */; };
+		20BB9A26270C914900736C0A /* StandardLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB9A25270C914900736C0A /* StandardLabel.swift */; };
+		20BB9A28270C97B100736C0A /* PhoneUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB9A27270C97B100736C0A /* PhoneUITextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		20BB99E526FA7D5C00736C0A /* String+LibraryHourFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LibraryHourFormatting.swift"; sourceTree = "<group>"; };
 		20BB99E826FC318000736C0A /* LibraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewController.swift; sourceTree = "<group>"; };
 		20BB99EB2703570700736C0A /* LibraryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDataSource.swift; sourceTree = "<group>"; };
+		20BB9A25270C914900736C0A /* StandardLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardLabel.swift; sourceTree = "<group>"; };
+		20BB9A27270C97B100736C0A /* PhoneUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneUITextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		20BB99C126FA512900736C0A /* SwiftLibrariesNoSB */ = {
 			isa = PBXGroup;
 			children = (
+				20BB9A24270C912C00736C0A /* UI Elements */,
 				20BB99EA270356EA00736C0A /* Data Source */,
 				20BB99E326FA7D5C00736C0A /* Extensions */,
 				20BB99D926FA606600736C0A /* Data Models */,
@@ -115,6 +120,15 @@
 				20BB99EB2703570700736C0A /* LibraryDataSource.swift */,
 			);
 			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		20BB9A24270C912C00736C0A /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				20BB9A25270C914900736C0A /* StandardLabel.swift */,
+				20BB9A27270C97B100736C0A /* PhoneUITextView.swift */,
+			);
+			path = "UI Elements";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +204,9 @@
 				20BB99C726FA512900736C0A /* LibraryViewController.swift in Sources */,
 				20BB99C326FA512900736C0A /* AppDelegate.swift in Sources */,
 				20BB99DF26FA606600736C0A /* Website.swift in Sources */,
+				20BB9A28270C97B100736C0A /* PhoneUITextView.swift in Sources */,
 				20BB99DD26FA606600736C0A /* Location.swift in Sources */,
+				20BB9A26270C914900736C0A /* StandardLabel.swift in Sources */,
 				20BB99E726FA7D5C00736C0A /* String+LibraryHourFormatting.swift in Sources */,
 				20BB99EC2703570700736C0A /* LibraryDataSource.swift in Sources */,
 				20BB99E926FC318000736C0A /* LibraryDetailViewController.swift in Sources */,

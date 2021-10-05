@@ -8,13 +8,22 @@
 import UIKit
 
 class PhoneUITextView: UITextView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.commonInit()
     }
-    */
-
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        self.commonInit()
+    }
+    
+    private func commonInit() {
+        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        textColor = .link
+        font = UIFont.systemFont(ofSize: 17)
+        textAlignment = .natural
+        dataDetectorTypes = [.phoneNumber]
+        translatesAutoresizingMaskIntoConstraints = false
+    }
 }

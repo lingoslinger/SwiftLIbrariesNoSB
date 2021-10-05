@@ -23,37 +23,9 @@ class LibraryDetailViewController: UIViewController {
         return map
     }()
     
-    private let addressLabel: UILabel = {
-        let address = UILabel()
-        address.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        address.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        address.font = UIFont.systemFont(ofSize: 17)
-        address.textAlignment = .natural
-        address.translatesAutoresizingMaskIntoConstraints = false
-        return address
-    }()
-  
-    private let phoneTextView: UITextView = {
-        let phone = UITextView()
-        phone.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        phone.textColor = .link
-        phone.font = UIFont.systemFont(ofSize: 17)
-        phone.textAlignment = .natural
-        phone.dataDetectorTypes = [.phoneNumber]
-        phone.translatesAutoresizingMaskIntoConstraints = false
-        return phone
-    }()
-    
-    private let hoursLabel: UILabel = {
-        let hours = UILabel()
-        hours.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        hours.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        hours.font = UIFont.systemFont(ofSize: 17)
-        hours.textAlignment = .natural
-        hours.numberOfLines = 0
-        hours.translatesAutoresizingMaskIntoConstraints = false
-        return hours
-    }()
+    private let addressLabel = StandardLabel()
+    private let hoursLabel = StandardLabel(numberOfLines: 0)
+    private let phoneTextView = PhoneUITextView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +74,7 @@ class LibraryDetailViewController: UIViewController {
             let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
             numberOfMatches = detector.numberOfMatches(in: phone, range: NSRange(phone.startIndex..., in: phone))
         } catch {
-            print(error) // TODO: error handling
+            self.showErrorDialogWithMessage(message: error.localizedDescription)
         }
         if numberOfMatches == 0 { // so far, only a phone number and a "closed for construction" message has been here
             phoneTextView.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
