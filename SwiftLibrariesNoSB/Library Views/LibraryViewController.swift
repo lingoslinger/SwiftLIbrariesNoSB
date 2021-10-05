@@ -21,8 +21,12 @@ class LibraryViewController: UIViewController {
         setupAutoLayout()
         setupNavigation()
 
-        libraryDataSource.getLibraryData {
-            self.libraryTableView.reloadData()
+        libraryDataSource.getLibraryData { error in
+            if error != nil {
+                self.showErrorDialogWithMessage(message: error?.localizedDescription ?? "Unknown network error")
+            } else {
+                self.libraryTableView.reloadData()
+            }
         }
     }
 

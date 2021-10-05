@@ -15,7 +15,7 @@
 		20BB99DD26FA606600736C0A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99DA26FA606600736C0A /* Location.swift */; };
 		20BB99DE26FA606600736C0A /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99DB26FA606600736C0A /* Library.swift */; };
 		20BB99DF26FA606600736C0A /* Website.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99DC26FA606600736C0A /* Website.swift */; };
-		20BB99E626FA7D5C00736C0A /* NSObject+ErrorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99E426FA7D5C00736C0A /* NSObject+ErrorDialog.swift */; };
+		20BB99E626FA7D5C00736C0A /* ViewController+ErrorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99E426FA7D5C00736C0A /* ViewController+ErrorDialog.swift */; };
 		20BB99E726FA7D5C00736C0A /* String+LibraryHourFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99E526FA7D5C00736C0A /* String+LibraryHourFormatting.swift */; };
 		20BB99E926FC318000736C0A /* LibraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99E826FC318000736C0A /* LibraryDetailViewController.swift */; };
 		20BB99EC2703570700736C0A /* LibraryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB99EB2703570700736C0A /* LibraryDataSource.swift */; };
@@ -32,7 +32,7 @@
 		20BB99DA26FA606600736C0A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		20BB99DB26FA606600736C0A /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		20BB99DC26FA606600736C0A /* Website.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Website.swift; sourceTree = "<group>"; };
-		20BB99E426FA7D5C00736C0A /* NSObject+ErrorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ErrorDialog.swift"; sourceTree = "<group>"; };
+		20BB99E426FA7D5C00736C0A /* ViewController+ErrorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ErrorDialog.swift"; sourceTree = "<group>"; };
 		20BB99E526FA7D5C00736C0A /* String+LibraryHourFormatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LibraryHourFormatting.swift"; sourceTree = "<group>"; };
 		20BB99E826FC318000736C0A /* LibraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewController.swift; sourceTree = "<group>"; };
 		20BB99EB2703570700736C0A /* LibraryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDataSource.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 				20BB99EA270356EA00736C0A /* Data Source */,
 				20BB99E326FA7D5C00736C0A /* Extensions */,
 				20BB99D926FA606600736C0A /* Data Models */,
-				20BB99D626FA5A3600736C0A /* LibraryTableView */,
+				20BB99D626FA5A3600736C0A /* Library Views */,
 				20BB99C226FA512900736C0A /* AppDelegate.swift */,
 				20BB99C426FA512900736C0A /* SceneDelegate.swift */,
 				20BB99CB26FA512A00736C0A /* Assets.xcassets */,
@@ -81,13 +81,13 @@
 			path = SwiftLibrariesNoSB;
 			sourceTree = "<group>";
 		};
-		20BB99D626FA5A3600736C0A /* LibraryTableView */ = {
+		20BB99D626FA5A3600736C0A /* Library Views */ = {
 			isa = PBXGroup;
 			children = (
 				20BB99C626FA512900736C0A /* LibraryViewController.swift */,
 				20BB99E826FC318000736C0A /* LibraryDetailViewController.swift */,
 			);
-			path = LibraryTableView;
+			path = "Library Views";
 			sourceTree = "<group>";
 		};
 		20BB99D926FA606600736C0A /* Data Models */ = {
@@ -103,7 +103,7 @@
 		20BB99E326FA7D5C00736C0A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				20BB99E426FA7D5C00736C0A /* NSObject+ErrorDialog.swift */,
+				20BB99E426FA7D5C00736C0A /* ViewController+ErrorDialog.swift */,
 				20BB99E526FA7D5C00736C0A /* String+LibraryHourFormatting.swift */,
 			);
 			path = Extensions;
@@ -186,7 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20BB99E626FA7D5C00736C0A /* NSObject+ErrorDialog.swift in Sources */,
+				20BB99E626FA7D5C00736C0A /* ViewController+ErrorDialog.swift in Sources */,
 				20BB99C726FA512900736C0A /* LibraryViewController.swift in Sources */,
 				20BB99C326FA512900736C0A /* AppDelegate.swift in Sources */,
 				20BB99DF26FA606600736C0A /* Website.swift in Sources */,

@@ -15,16 +15,15 @@ class LibraryDataSource: NSObject {
             let unsortedLetters = libraryDictionary.keys
             return unsortedLetters.sorted()
         }
-        set { }
     }
     
-    func getLibraryData(_ completion: @escaping () -> Void) {
+    func getLibraryData(_ completion: @escaping (Error?) -> Void) {
         if libraryDictionary.isEmpty {
             newDataRequest(completion)
         }
     }
     
-    private func newDataRequest(_ completion: @escaping () -> Void) {
+    private func newDataRequest(_ completion: @escaping (Error?) -> Void) {
         guard let URL = URL(string: "https://data.cityofchicago.org/resource/x8fc-8rcq.json") else { return }
         URLSession.shared.dataTask(with: URL) { data, response, error in
             if (error == nil) {
@@ -33,15 +32,8 @@ class LibraryDataSource: NSObject {
                     fatalError("Unable to decode JSON library data")
                 }
                 self.setupSectionsWithLibraryArray(libraryArray)
-                DispatchQueue.main.async {
-                    completion()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    // TODO: completion handler to tableview showing error
-                    // self.showErrorDialogWithMessage(message: error?.localizedDescription ?? "Unknown network error")
-                }
             }
+            DispatchQueue.main.async { completion(error) }
         }.resume()
     }
     
@@ -61,7 +53,6 @@ class LibraryDataSource: NSObject {
         let sectionArray = libraryDictionary[sectionTitle]
         return sectionArray?[indexPath.row]
     }
-
 }
 
 extension LibraryDataSource: UITableViewDataSource {
@@ -80,11 +71,11 @@ extension LibraryDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sectionTitles[section]
+        return sectionTitles[section]
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return self.sectionTitles
+        return sectionTitles
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
