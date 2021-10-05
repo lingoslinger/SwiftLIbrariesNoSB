@@ -1,5 +1,5 @@
 //
-//  PhoneUITextView.swift
+//  LibraryPhoneTextView.swift
 //  SwiftLibrariesNoSB
 //
 //  Created by Allan Evans on 10/5/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhoneUITextView: UITextView {
+class LibraryPhoneTextView: UITextView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.commonInit()

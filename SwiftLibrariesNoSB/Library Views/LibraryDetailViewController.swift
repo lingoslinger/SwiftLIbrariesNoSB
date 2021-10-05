@@ -17,15 +17,10 @@ class LibraryDetailViewController: UIViewController {
         self.library = library
     }
     
-    private let mapView: MKMapView = {
-        let map = MKMapView()
-        map.translatesAutoresizingMaskIntoConstraints = false
-        return map
-    }()
-    
-    private let addressLabel = StandardLabel()
-    private let hoursLabel = StandardLabel(numberOfLines: 0)
-    private let phoneTextView = PhoneUITextView()
+    private let mapView = LibraryMapView()
+    private let addressLabel = LibraryLabel()
+    private let hoursLabel = LibraryLabel(numberOfLines: 0)
+    private let phoneTextView = LibraryPhoneTextView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +37,7 @@ class LibraryDetailViewController: UIViewController {
         mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        mapView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        mapView.heightAnchor.constraint(equalTo: mapView.widthAnchor, multiplier: 9.0/16.0).isActive = true
         
         addressLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 20).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
@@ -76,7 +71,7 @@ class LibraryDetailViewController: UIViewController {
         } catch {
             self.showErrorDialogWithMessage(message: error.localizedDescription)
         }
-        if numberOfMatches == 0 { // so far, only a phone number and a "closed for construction" message has been here
+        if numberOfMatches == 0 { // if no phnone number here, a "closed for construction" message is the only other result, so...
             phoneTextView.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
             phoneTextView.text = phone
         } else {
