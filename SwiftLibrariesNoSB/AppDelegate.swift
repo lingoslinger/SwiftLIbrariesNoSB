@@ -14,6 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // White non-transucent navigation bar, supports dark appearance - fixes issue where nav bar "blacks out" when phone set to light appearance
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
         return true
     }
 
@@ -33,4 +40,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
