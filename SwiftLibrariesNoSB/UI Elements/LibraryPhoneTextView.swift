@@ -26,4 +26,21 @@ class LibraryPhoneTextView: UITextView {
         dataDetectorTypes = [.phoneNumber]
         translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func parsePhoneNumber(library: Library, controller: UIViewController) {
+        guard let phone = library.phone else { return }
+        var numberOfMatches = 0
+        do {
+            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
+            numberOfMatches = detector.numberOfMatches(in: phone, range: NSRange(phone.startIndex..., in: phone))
+        } catch {
+            controller.showErrorDialogWithMessage(message: error.localizedDescription)
+        }
+        if numberOfMatches == 0 { // if no phnone number here, a "closed for construction" message is the only other result, so...
+            self.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
+            self.text = phone
+        } else {
+            self.text = "Phone: \(phone)"
+        }
+    }
 }

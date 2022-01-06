@@ -55,43 +55,13 @@ class LibraryDetailViewController: UIViewController {
     }
     
     private func setupUI() {
-        title = library?.name
-        annotateMap()
-        addressLabel.text = library?.address
-        parsePhoneNumber()
-        hoursLabel.text = library?.hoursOfOperation?.formattedHours
-    }
-    
-    private func parsePhoneNumber() {
-        guard let phone = library?.phone else { return }
-        var numberOfMatches = 0
-        do {
-            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
-            numberOfMatches = detector.numberOfMatches(in: phone, range: NSRange(phone.startIndex..., in: phone))
-        } catch {
-            self.showErrorDialogWithMessage(message: error.localizedDescription)
+        guard let library = library else {
+            return
         }
-        if numberOfMatches == 0 { // if no phnone number here, a "closed for construction" message is the only other result, so...
-            phoneTextView.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
-            phoneTextView.text = phone
-        } else {
-            phoneTextView.text = "Phone: \(phone)"
-        }
-    }
-    
-    private func annotateMap() {
-        guard let latitudeString = library?.location?.latitude,
-              let longitudeString = library?.location?.longitude,
-              let lat = Double(latitudeString),
-              let lon = Double(longitudeString) else { return }
-        let zoomLocation = CLLocationCoordinate2D.init(latitude: lat,
-                                                       longitude: lon)
-        let span = MKCoordinateSpan.init(latitudeDelta: 0.005, longitudeDelta: 0.005)
-        let viewRegion = MKCoordinateRegion.init(center: zoomLocation, span: span)
-        let point = MKPointAnnotation.init()
-        point.coordinate = zoomLocation
-        point.title = library?.name
-        mapView.addAnnotation(point)
-        mapView.setRegion(mapView.regionThatFits(viewRegion), animated: true)
+        title = library.name
+        mapView.annotateMap(library: library)
+        addressLabel.text = library.address
+        phoneTextView.parsePhoneNumber(library: library, controller: self)
+        hoursLabel.text = library.hoursOfOperation?.formattedHours
     }
 }
