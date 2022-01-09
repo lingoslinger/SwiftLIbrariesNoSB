@@ -36,11 +36,12 @@ class LibraryPhoneTextView: UITextView {
         } catch {
             controller.showErrorDialogWithMessage(message: error.localizedDescription)
         }
+        // update: a new construction message appears in the hours field. Leaving this here just in case (for now anyway.)
         if numberOfMatches == 0 { // if no phnone number here, a "closed for construction" message is the only other result, so...
-            self.textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
-            self.text = phone
+            textColor = #colorLiteral(red: 0.9952842593, green: 0.1894924343, blue: 0.3810988665, alpha: 1)
+            text = phone
         } else {
-            self.text = "Phone: \(phone)"
+            text = "Phone: \(phone)"
         }
     }
 }

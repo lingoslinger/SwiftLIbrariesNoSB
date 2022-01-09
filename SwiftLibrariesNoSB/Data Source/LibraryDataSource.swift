@@ -80,8 +80,16 @@ extension LibraryDataSource: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath)
-        let library = currentLibrary(indexPath)
-        cell.textLabel?.text = library?.name
+        guard let library = currentLibrary(indexPath) else { return cell }
+        guard let libraryName = library.name else { return cell }
+        cell.textLabel?.text = libraryName
+        cell.textLabel?.textColor = .white
+        
+        guard let libraryHours = library.hoursOfOperation else { return cell }
+        let hoursString = libraryHours.formattedHours
+        if hoursString.contains("improvements") {
+            cell.textLabel?.textColor = .red
+        }
         return cell
     }
 }

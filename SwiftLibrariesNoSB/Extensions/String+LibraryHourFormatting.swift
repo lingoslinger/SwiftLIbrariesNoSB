@@ -10,6 +10,7 @@ import Foundation
 
 extension String {
     var formattedHours: String {
+        if self == "Closed for building improvements" { return self } // maybe a better way to handle exceptions here someday...
         let dayOfWeekArray = ["Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.", "Sun."]
         let formattedDayOfWeekArray = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         var hoursString = self
