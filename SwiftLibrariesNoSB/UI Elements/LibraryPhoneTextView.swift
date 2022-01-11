@@ -19,7 +19,6 @@ class LibraryPhoneTextView: UITextView {
     }
     
     private func commonInit() {
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         textColor = .link
         font = UIFont.systemFont(ofSize: 17)
         textAlignment = .natural

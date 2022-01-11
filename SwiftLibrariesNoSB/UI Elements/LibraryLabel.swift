@@ -24,8 +24,6 @@ class LibraryLabel: UILabel {
     }
     
     private func commonInit() {
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         font = UIFont.systemFont(ofSize: 17)
         textAlignment = .natural
         translatesAutoresizingMaskIntoConstraints = false

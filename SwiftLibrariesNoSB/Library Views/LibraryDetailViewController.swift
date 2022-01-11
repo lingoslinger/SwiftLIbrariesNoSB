@@ -24,7 +24,11 @@ class LibraryDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .white
+        } else {
+            view.backgroundColor = .black
+        }
         view.addSubview(mapView)
         view.addSubview(addressLabel)
         view.addSubview(phoneTextView)
