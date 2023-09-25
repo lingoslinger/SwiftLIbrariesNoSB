@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -160,8 +160,9 @@
 		20BB99B726FA512900736C0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					20BB99BE26FA512900736C0A = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -362,7 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.lingo-slingers.SwiftLibrariesNoSB";
+				PRODUCT_BUNDLE_IDENTIFIER = com.agesoftwareconslutingllc.SwiftLibrariesNoSB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,7 +383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.lingo-slingers.SwiftLibrariesNoSB";
+				PRODUCT_BUNDLE_IDENTIFIER = com.agesoftwareconslutingllc.SwiftLibrariesNoSB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
